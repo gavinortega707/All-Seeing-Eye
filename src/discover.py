@@ -1,9 +1,17 @@
 import requests
+from bs4 import BeautifulSoup
 
-url = "https://example.com"
+url = "https://www.bottomofthehill.com/calendar.html"
 
-response = requests.get(url)
+print("Downloading calendar...")
 
-print("Status Code:", response.status_code)
-print()
-print(response.text[:500])
+response = requests.get(
+    url,
+    headers={"User-Agent": "Mozilla/5.0"},
+    timeout=10,
+)
+
+soup = BeautifulSoup(response.text, "html.parser")
+
+print("Page title:")
+print(soup.title.text)
