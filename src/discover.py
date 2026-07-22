@@ -13,7 +13,7 @@ soup = BeautifulSoup(response.text, "html.parser")
 
 bands = soup.find_all(class_="band")
 
-print(f"Found {len(bands)} bands:\n")
+print(f"Found {len(bands)} bands.\n")
 
-for band in bands[:20]:
-    print("-", band.get_text(strip=True))
+for i, band in enumerate(bands[:10], start=1):
+    print(f"{i}. {band.get_text(strip=True)}")
