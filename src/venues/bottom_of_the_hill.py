@@ -2,6 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 
 from src.models import Event
+from datetime import datetime
 
 def get_events():
     url = "https://www.bottomofthehill.com/calendar.html"
@@ -49,6 +50,7 @@ def get_events():
         )
 
         date = " ".join(date.split())
+        date = datetime.strptime(date, "%A %B %d %Y")
         time = " ".join(time.split())
         price = " ".join(price.split())
 

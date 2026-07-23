@@ -9,7 +9,12 @@ def main():
     print(f"Found {len(events)} events.\n")
 
     for event in events[:3]:
-        pprint(event)
+        print("Venue:", event.venue)
+        print("Date:", event.date.strftime("%A, %B %d, %Y"))
+        print("Time:", event.time)
+        print("Price:", event.price)
+        print("Bands:", ", ".join(event.bands))
+        print("Genres:", ", ".join(event.genres))
         print("-" * 50)
 
 
