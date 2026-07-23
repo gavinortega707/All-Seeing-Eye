@@ -1,6 +1,16 @@
+from pprint import pprint
+
+from src.venues.bottom_of_the_hill import get_events
+
+
 def main():
-    print("🎸 Welcome to Underground Show Finder!")
-    print("Searching for awesome local bands...")
+    events = get_events()
+
+    print(f"Found {len(events)} events.\n")
+
+    for event in events[:3]:
+        pprint(event)
+        print("-" * 50)
 
 
 if __name__ == "__main__":
